@@ -3,22 +3,19 @@ import chromadb
 import streamlit as st
 from dotenv import load_dotenv
 from pathlib import Path
+
+##
+#streamlit cloud running config to use tmp as cache
+os.environ['LLAMA_INDEX_CACHE_DIR'] = '/tmp/llama_index_cache'
+import nltk
+nltk.data.path.append('/tmp/nltk_data')
+##
+
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, StorageContext, Settings
 from llama_index.vector_stores.chroma import ChromaVectorStore
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.groq import Groq
 from llama_index.core.node_parser import SentenceSplitter
-
-##streamlit cloud setting
-import nltk
-nltk_data_dir = os.path.join(os.path.expanduser("~"), "nltk_data")
-if not os.path.exists(nltk_data_dir):
-    os.makedirs(nltk_data_dir)
-
-nltk.data.path.append(nltk_data_dir)
-nltk.download('punkt', download_dir=nltk_data_dir)
-nltk.download('punkt_tab', download_dir=nltk_data_dir)
-##
 
 st.set_page_config(page_title="Deutsche Telekom Press release RAG", layout="wide")
 
