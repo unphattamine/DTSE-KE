@@ -3,5 +3,5 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
-EXPOSE 1234
-CMD ["streamlit", "run", "app.py", "--server.port=1234", "--server.address=0.0.0.0"]
+EXPOSE 12345
+CMD ["streamlit", "run", "app.py", "--server.port=12345", "--server.address=0.0.0.0"]

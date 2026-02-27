@@ -6,17 +6,17 @@ from pathlib import Path
 
 ##
 #streamlit cloud running config to use tmp as cache
-os.environ['LLAMA_INDEX_CACHE_DIR'] = '/tmp/llama_index_cache'
-import nltk
-nltk_data_path = "/tmp/nltk_data"
-if not os.path.exists(nltk_data_path):
-    os.makedirs(nltk_data_path, exist_ok=True)
-nltk.data.path.insert(0, nltk_data_path)
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt', download_dir=nltk_data_path)
-    nltk.download('punkt_tab', download_dir=nltk_data_path)
+#os.environ['LLAMA_INDEX_CACHE_DIR'] = '/tmp/llama_index_cache'
+#import nltk
+#nltk_data_path = "/tmp/nltk_data"
+#if not os.path.exists(nltk_data_path):
+#    os.makedirs(nltk_data_path, exist_ok=True)
+#nltk.data.path.insert(0, nltk_data_path)
+#try:
+#    nltk.data.find('tokenizers/punkt')
+#except LookupError:
+#    nltk.download('punkt', download_dir=nltk_data_path)
+#    nltk.download('punkt_tab', download_dir=nltk_data_path)
 ##
 
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, StorageContext, Settings
